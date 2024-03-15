@@ -57,4 +57,15 @@ public class Winner {
     public void setRow2(int row2) {
         this.row2 = row2;
     }
+
+    @Override
+    public String toString() {
+        return "Winner{" +
+                "winningPiece=" + winningPiece +
+                ", col1=" + col1 +
+                ", row1=" + row1 +
+                ", col2=" + col2 +
+                ", row2=" + row2 +
+                '}';
+    }
 }
