@@ -76,43 +76,49 @@ public class BoardImpl implements Board {
 
         @Override
         public Winner findWinner() {
-                for (int i=0;i < NUM_OF_COLS;i++){
-                        for (int j=0; j < NUM_OF_ROWS;j++){
-                                System.out.println(piece[i][j]);
-                                if(piece[i][1].equals(Piece.BLUE)) {
-                                        if ((piece[i][1].equals(piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][0].equals(piece[i][1]))) {
-                                                return new Winner(Piece.BLUE ,i,0,i,3);
-                                        } else if ((piece[i][1].equals(piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][3].equals(piece[i][4]))){
-                                                return new Winner(Piece.BLUE,i,0,i,4);
+                for (int i=0; i<NUM_OF_COLS; i++){
+                        for (int j=0; j<NUM_OF_ROWS; j++){
+                                if (piece[1][j].equals(Piece.BLUE)){
+                                        if ((piece[1][j].equals (piece[2][j])) && (piece[2][j].equals(piece[3][j])) && (piece[3][j].equals(piece[4][j]))){
+                                                return new Winner(Piece.BLUE, j, 1, j, 4);
+                                        }else if ((piece[1][j].equals(piece[2][j])) && (piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[0][j]))){
+                                                return new Winner(Piece.BLUE, j, 0, j, 3 );
+                                        }else if ((piece[2][j].equals(piece[3][j])) && (piece[3][j].equals(piece[4][j])) && (piece[4][j].equals(piece[5][j]))){
+                                                return new Winner(Piece.BLUE, j, 2,j, 5);
                                         }
                                 }
-                                if(piece[i][1].equals(Piece.GREEN)) {
-                                        if ((piece[i][1].equals(piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][0].equals(piece[i][1]))) {
-                                                return new Winner(Piece.GREEN ,i,0,i,3);
-                                        } else if ((piece[i][1].equals(piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][3].equals(piece[i][4]))){
-                                                return new Winner(Piece.GREEN,i,0,i,4);
+
+                                if (piece[1][j].equals(Piece.GREEN)){
+                                        if ((piece[1][j].equals (piece[2][j])) && (piece[2][j].equals(piece[3][j])) && (piece[3][j].equals(piece[4][j]))){
+                                                return new Winner(Piece.GREEN, j, 1, j, 4);
+                                        }else if ((piece[1][j].equals(piece[2][j])) && (piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[0][j]))){
+                                                return new Winner(Piece.GREEN, j, 0, j, 3 );
+                                        }else if ((piece[2][j].equals(piece[3][j])) && (piece[3][j].equals(piece[4][j])) && (piece[4][j].equals(piece[5][j]))){
+                                                return new Winner(Piece.GREEN, j, 2,j, 5);
                                         }
                                 }
-                                if(piece[2][j].equals(Piece.BLUE)) {
-                                        if ((piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[2][j])) && (piece[0][j].equals(piece[1][j]))){
-                                                return new Winner(Piece.BLUE,2,j,1,j);
-                                        } else if ((piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[2][j])) && (piece[4][j].equals(piece[3][j]))) {
-                                                return new Winner(Piece.BLUE,2,j,4,j);
-                                        } else if ((piece[2][j].equals(piece[3][j])) && (piece[4][j].equals(piece[3][j])) && piece[5][j].equals(piece[4][j])) {
-                                                return new Winner(Piece.BLUE,2,j,5,j);
+
+                                if (piece[i][1].equals(Piece.BLUE)){
+                                        if ((piece[i][1].equals (piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][3].equals(piece[i][4]))){
+                                                return new Winner(Piece.BLUE, i, 1, i, 4);
+                                        }else if ((piece[i][1].equals(piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][1].equals(piece[i][0]))){
+                                                return new Winner(Piece.BLUE, i, 0, i, 3 );
                                         }
                                 }
-                                if (piece[2][j].equals(Piece.GREEN)){
-                                        if ((piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[2][j])) && (piece[0][j].equals(piece[1][j]))){
-                                                return new Winner(Piece.GREEN,2,j,1,j);
-                                        }else if ((piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[2][j])) && (piece[4][j].equals(piece[3][j]))) {
-                                                return new Winner(Piece.GREEN,2,j,4,j);
-                                        }else if ((piece[2][j].equals(piece[3][j])) && (piece[4][j].equals(piece[3][j])) && (piece[5][j].equals(piece[4][j]))){
-                                                return new Winner(Piece.GREEN,2,j,5,j);
+
+                                if (piece[i][1].equals(Piece.GREEN)){
+                                        if ((piece[i][1].equals (piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][3].equals(piece[i][4]))){
+                                                return new Winner(Piece.GREEN, i, 1, i, 4);
+                                        }else if ((piece[i][1].equals(piece[i][2])) && (piece[i][2].equals(piece[i][3])) && (piece[i][1].equals(piece[i][0]))){
+                                                return new Winner(Piece.GREEN, i, 0, i, 3 );
                                         }
                                 }
                         }
+
                 }
+
                 return new Winner(Piece.EMPTY);
         }
 }
+
+
