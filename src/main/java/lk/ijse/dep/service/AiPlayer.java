@@ -23,6 +23,7 @@ public class AiPlayer extends Player {
                 board.getBoardUI().notifyWinner(board.findWinner());
             }
         }
+
     }
 
 

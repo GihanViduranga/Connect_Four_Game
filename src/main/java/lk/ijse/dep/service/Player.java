@@ -40,6 +40,11 @@ public class Player implements Board {
     }
 
     @Override
+    public void updateMove(int col, int row, Piece move) {
+
+    }
+
+    @Override
     public Winner findWinner() {
         return null;
     }

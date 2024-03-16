@@ -51,16 +51,27 @@ public class BoardImpl implements Board {
 
         @Override
         public void updateMove(int col, Piece move) {
-                piece[col][findNextAvailableSpot(col)] = move;
-                if(piece[col][findNextAvailableSpot(col)] == Piece.EMPTY) {
-                        for (int i = 0; i < piece.length; i++) {
-                                for (int j = 0; j < piece[i].length; j++) {
-                                        if (piece[i][j] == Piece.EMPTY) {
-                                                break;
-                                        }
-                                }
+                for (int i = 0; i < NUM_OF_ROWS; i++) {
+                        if (piece[col][i] == Piece.EMPTY) {
+                                piece[col][i] = move;
+                                break;
                         }
                 }
+//                piece[col][findNextAvailableSpot(col)] = move;
+//                if(piece[col][findNextAvailableSpot(col)] == Piece.EMPTY) {
+//                        for (int i = 0; i < piece.length; i++) {
+//                                for (int j = 0; j < piece[i].length; j++) {
+//                                        if (piece[i][j] == Piece.EMPTY) {
+//                                                break;
+//                                        }
+//                                }
+//                        }
+//                }
+        }
+
+        @Override
+        public void updateMove(int col, int row, Piece move) {
+                piece[col][row] = move;
         }
 
         @Override
@@ -94,8 +105,9 @@ public class BoardImpl implements Board {
                                 if (piece[2][j].equals(Piece.GREEN)){
                                         if ((piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[2][j])) && (piece[0][j].equals(piece[1][j]))){
                                                 return new Winner(Piece.GREEN,2,j,1,j);
-                                        }
-                                        if ((piece[2][j].equals(piece[3][j])) && (piece[4][j].equals(piece[3][j])) && (piece[5][j].equals(piece[4][j]))){
+                                        }else if ((piece[2][j].equals(piece[3][j])) && (piece[1][j].equals(piece[2][j])) && (piece[4][j].equals(piece[3][j]))) {
+                                                return new Winner(Piece.GREEN,2,j,4,j);
+                                        }else if ((piece[2][j].equals(piece[3][j])) && (piece[4][j].equals(piece[3][j])) && (piece[5][j].equals(piece[4][j]))){
                                                 return new Winner(Piece.GREEN,2,j,5,j);
                                         }
                                 }
