@@ -13,13 +13,17 @@ public class AiPlayer extends Player {
 
     @Override
     public void movePiece(int col) {
+        do {
+            col = (int) (Math.random() * 6);
 
+
+        } while (!board.isLegalMove(col));
 
         if (board.isLegalMove(col)){
             board.updateMove(col, Piece.GREEN);
-            board.getBoardUI().update(col , true);
+            board.getBoardUI().update(col, false);
 
-            if (board.findWinner().getWinningPiece().equals(Piece.EMPTY)) {
+            if (board.findWinner().getWinningPiece().equals(Piece.EMPTY)){
                 if (!board.existsLegalMoves()){
                     board.getBoardUI().notifyWinner(new Winner(Piece.EMPTY));
                 }

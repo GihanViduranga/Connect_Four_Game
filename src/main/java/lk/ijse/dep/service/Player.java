@@ -1,6 +1,6 @@
 package lk.ijse.dep.service;
 
-public abstract class Player{
+public class Player{
     protected  Board board;
 
     public Player() {
