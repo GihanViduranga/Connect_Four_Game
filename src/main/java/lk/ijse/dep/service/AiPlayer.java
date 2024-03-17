@@ -1,5 +1,7 @@
 package lk.ijse.dep.service;
 
+import java.util.Random;
+
 public class AiPlayer extends Player {
     public AiPlayer() {
         super();
@@ -11,6 +13,8 @@ public class AiPlayer extends Player {
 
     @Override
     public void movePiece(int col) {
+
+
         if (board.isLegalMove(col)){
             board.updateMove(col, Piece.GREEN);
             board.getBoardUI().update(col , true);
